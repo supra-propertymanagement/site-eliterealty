@@ -1,0 +1,19 @@
+# Every pull request and push to main: fail if a page is missing from
+# sitemap.xml, if sitemap.xml lists something that is not a page, or if
+# robots.txt loses its Sitemap line. The fix is always in the error message.
+# See README.md "Adding a page".
+name: Sitemap
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/sitemap.mjs --check

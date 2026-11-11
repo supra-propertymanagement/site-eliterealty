@@ -1,5 +1,7 @@
 [build]
   publish = "."
+  # Rewrites sitemap.xml with real per-page dates from git (see README.md).
+  command = "node scripts/sitemap.mjs --netlify"
   functions = "netlify/functions"
 
 [[headers]]
