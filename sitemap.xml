@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.eliterealtygroup.com/</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -31,6 +32,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.eliterealtygroup.com/blog/jacksonville-real-estate-market-update-october-2026</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.eliterealtygroup.com/blog/northeast-florida-housing-market-amendment-3</loc>
     <lastmod>2026-11-09</lastmod>
     <priority>0.6</priority>
@@ -56,5 +63,23 @@
   <url>
     <loc>https://www.eliterealtygroup.com/fair-housing</loc>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.eliterealtygroup.com/faq</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.eliterealtygroup.com/testimonials</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.eliterealtygroup.com/careers</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

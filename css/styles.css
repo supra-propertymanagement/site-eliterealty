@@ -493,7 +493,7 @@ h4 { font-size: 1.2rem; }
     min-height: 90vh;
     display: flex;
     align-items: center;
-    background: url('../images/hero-skyline.jpg') left center/cover no-repeat;
+    background: url('../images/hero-skyline.webp') left center/cover no-repeat;
     overflow: hidden;
     padding-top: 100px;
 }
@@ -896,15 +896,15 @@ h4 { font-size: 1.2rem; }
     border-radius: var(--radius-lg);
     overflow: hidden;
     aspect-ratio: 4/3;
-    background: url('../images/neighborhood.jpg') center/cover no-repeat;
+    background: url('../images/neighborhood.webp') center/cover no-repeat;
 }
 
 .about-image--team {
-    background-image: url('../images/lion-fountain.jpg');
+    background-image: url('../images/lion-fountain.webp');
 }
 
 .about-image--supra {
-    background-image: url('../images/beach-town.jpg');
+    background-image: url('../images/beach-town.webp');
 }
 
 .about-content .section-title::after {
@@ -936,7 +936,7 @@ h4 { font-size: 1.2rem; }
 /* --- Process / How It Works --- */
 .process-section {
     position: relative;
-    background: url('../images/mural.jpg') center/cover no-repeat fixed;
+    background: url('../images/mural.webp') center/cover no-repeat fixed;
     color: var(--color-white);
     padding: 96px 0;
 }
@@ -1062,7 +1062,7 @@ h4 { font-size: 1.2rem; }
 /* --- Service Areas --- */
 .areas-section {
     position: relative;
-    background: url('../images/beach-aerial.jpg') center/cover no-repeat fixed;
+    background: url('../images/beach-aerial.webp') center/cover no-repeat fixed;
     padding: 96px 0;
     overflow: hidden;
 }
@@ -1110,7 +1110,7 @@ h4 { font-size: 1.2rem; }
 /* --- CTA Banner --- */
 .cta-banner {
     position: relative;
-    background: url('../images/bridge.jpg') center/cover no-repeat fixed;
+    background: url('../images/bridge.webp') center/cover no-repeat fixed;
     padding: 80px 0;
     overflow: hidden;
 }
@@ -1364,7 +1364,7 @@ h4 { font-size: 1.2rem; }
 /* --- Page Hero (inner pages) --- */
 .page-hero {
     position: relative;
-    background: url('../images/neighborhood.jpg') center/cover no-repeat;
+    background: url('../images/neighborhood.webp') center/cover no-repeat;
     padding: 160px 0 80px;
     text-align: center;
 }
