@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     var gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
                     gtag('event', 'generate_lead', Object.assign({ send_to: 'G-N020CC2D6C' }, info));
                 } catch (err) {}
-                step.innerHTML = '<p class="hero-lead-title">You&rsquo;re all set!</p><p class="hero-lead-sub">An Elite agent will reach out shortly to set up listing alerts for ' + area.replace(/[<>&]/g, '') + '. Want to look around now? <a href="https://realmlshomesforsale.com" target="_blank" rel="noopener">Browse all MLS listings &rarr;</a></p>';
+                step.innerHTML = '<p class="hero-lead-title">You&rsquo;re all set!</p><p class="hero-lead-sub">An Elite agent will reach out shortly to set up listing alerts for ' + area.replace(/[<>&]/g, '') + '. Want to look around now? <a href="https://link.flexmls.com/1zf3qglnwjo6,15" target="_blank" rel="noopener">Browse all MLS listings &rarr;</a></p>';
             }).catch(function() {
                 btn.disabled = false; btn.textContent = 'Send Me Listings';
                 msg.innerHTML = 'Sorry, that didn&rsquo;t go through. Please call <a href="tel:9043743235">(904) 374-3235</a> or email <a href="mailto:office@eliterealtygroup.com">office@eliterealtygroup.com</a>.';
