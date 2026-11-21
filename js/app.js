@@ -174,40 +174,59 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- Property Search ---
+    // --- Listing alerts (replaces the old Zillow search) ---
     var searchForm = document.getElementById('property-search-form');
     if (searchForm) {
+        var step = document.getElementById('hero-lead-step');
+        var fmtPrice = function(v) { return v ? '$' + Math.round(v / 1000) + 'k' : ''; };
         searchForm.addEventListener('submit', function(e) {
             e.preventDefault();
-
-            var location = document.getElementById('search-location').value.trim();
-            if (!location) return;
-
+            if (!document.getElementById('search-location').value.trim()) return;
+            step.hidden = false;
+            document.getElementById('hl-first').focus();
+        });
+        document.getElementById('hl-send').addEventListener('click', function() {
+            var btn = this, msg = document.getElementById('hl-msg');
+            var first = document.getElementById('hl-first').value.trim();
+            var last = document.getElementById('hl-last').value.trim();
+            var email = document.getElementById('hl-email').value.trim();
+            if (!first || !last || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+                msg.textContent = 'Please enter your first name, last name, and a valid email.';
+                msg.className = 'hero-lead-msg is-error';
+                return;
+            }
+            var area = document.getElementById('search-location').value.trim();
             var beds = document.getElementById('search-beds').value;
-            var minPrice = document.getElementById('search-price-min').value;
-            var maxPrice = document.getElementById('search-price-max').value;
-
-            var bedsPart = beds ? beds + '-_beds/' : '';
-
-            var pricePart = '';
-            if (minPrice && maxPrice) {
-                pricePart = minPrice + '-' + maxPrice + '_price/';
-            } else if (minPrice) {
-                pricePart = minPrice + '-_price/';
-            } else if (maxPrice) {
-                pricePart = '0-' + maxPrice + '_price/';
-            }
-
-            var locationPart;
-            if (/^\d{5}$/.test(location)) {
-                locationPart = location + '_rb/';
-            } else {
-                var slug = location.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-                locationPart = slug + '-jacksonville-fl_rb/';
-            }
-
-            var url = 'https://www.zillow.com/homes/for_sale/' + bedsPart + pricePart + locationPart;
-            window.open(url, '_blank', 'noopener');
+            var minP = document.getElementById('search-price-min').value;
+            var maxP = document.getElementById('search-price-max').value;
+            var criteria = '[Listing alert request] Area: ' + area +
+                (beds ? ' | Beds: ' + beds + '+' : '') +
+                ((minP || maxP) ? ' | Price: ' + (fmtPrice(minP) || 'any') + ' to ' + (fmtPrice(maxP) || 'any') : '');
+            var data = {
+                'first-name': first, 'last-name': last, email: email,
+                phone: document.getElementById('hl-phone').value.trim(),
+                interest: 'buying', message: criteria,
+                'bot-field': document.getElementById('hl-bot').value
+            };
+            btn.disabled = true; btn.textContent = 'Sending...';
+            fetch('/.netlify/functions/contact', {
+                method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data)
+            }).then(function(res) {
+                if (!res.ok) throw new Error('failed');
+                try {
+                    window.dataLayer = window.dataLayer || [];
+                    var info = { form_name: 'listing-alerts', lead_interest: 'buying', lead_area: area, page_path: location.pathname };
+                    window.dataLayer.push(Object.assign({ event: 'generate_lead' }, info));
+                    var gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+                    gtag('event', 'generate_lead', Object.assign({ send_to: 'G-N020CC2D6C' }, info));
+                } catch (err) {}
+                step.innerHTML = '<p class="hero-lead-title">You&rsquo;re all set!</p><p class="hero-lead-sub">An Elite agent will reach out shortly to set up listing alerts for ' + area.replace(/[<>&]/g, '') + '. Want to look around now? <a href="https://realmlshomesforsale.com" target="_blank" rel="noopener">Browse all MLS listings &rarr;</a></p>';
+            }).catch(function() {
+                btn.disabled = false; btn.textContent = 'Send Me Listings';
+                msg.innerHTML = 'Sorry, that didn&rsquo;t go through. Please call <a href="tel:9043743235">(904) 374-3235</a> or email <a href="mailto:office@eliterealtygroup.com">office@eliterealtygroup.com</a>.';
+                msg.className = 'hero-lead-msg is-error';
+            });
         });
     }
+
 });

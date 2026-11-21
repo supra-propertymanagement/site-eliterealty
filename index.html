@@ -163,10 +163,10 @@
             <h1>Jacksonville Real Estate for Buyers, Sellers &amp; Investors</h1>
             <p class="hero-tagline">Pursuing <span>Dreams</span> Together</p>
             <p class="hero-text">Whether you're buying your first home, selling a property, or growing your investment portfolio, Elite Realty Group delivers expert guidance and results across Northeast Florida.</p>
-            <form id="property-search-form" class="hero-search" aria-label="Property search">
+            <form id="property-search-form" class="hero-search" aria-label="Get matching listings">
                 <div class="hero-search-bar">
-                    <input type="text" id="search-location" placeholder="Search by zip code or neighborhood" required>
-                    <button type="submit" class="btn btn-primary">Search Homes</button>
+                    <input type="text" id="search-location" placeholder="Where do you want to live? ZIP or neighborhood" aria-label="Area, ZIP code, or neighborhood" required>
+                    <button type="submit" class="btn btn-primary">Get Listings</button>
                 </div>
                 <div class="hero-search-filters">
                     <select id="search-beds" aria-label="Bedrooms">
@@ -196,7 +196,22 @@
                         <option value="750000">$750k</option>
                     </select>
                     <span class="hero-search-divider">|</span>
-                    <a href="sellers.html" class="hero-search-link">Sell Your Property &rarr;</a>
+                    <a href="https://realmlshomesforsale.com" target="_blank" rel="noopener" class="hero-search-link">Browse all MLS listings &rarr;</a>
+                    <a href="home-value.html" class="hero-search-link">What&rsquo;s my home worth? &rarr;</a>
+                </div>
+                <div class="hero-lead-step" id="hero-lead-step" hidden>
+                    <p class="hero-lead-title">Where should we send your matching listings?</p>
+                    <p class="hero-lead-sub">A local Elite agent will set up new-listing alerts for you, usually the same business day. No spam, ever.</p>
+                    <div class="hero-lead-grid">
+                        <input type="text" id="hl-first" placeholder="First name" aria-label="First name" autocomplete="given-name">
+                        <input type="text" id="hl-last" placeholder="Last name" aria-label="Last name" autocomplete="family-name">
+                        <input type="email" id="hl-email" placeholder="Email" aria-label="Email" autocomplete="email">
+                        <input type="tel" id="hl-phone" placeholder="Phone (optional)" aria-label="Phone" autocomplete="tel">
+                    </div>
+                    <p style="display:none"><input id="hl-bot" name="bot-field" tabindex="-1" autocomplete="off"></p>
+                    <button type="button" class="btn btn-gold" id="hl-send">Send Me Listings</button>
+                    <p class="hero-lead-msg" id="hl-msg" role="status"></p>
+                    <p class="hero-lead-consent">By submitting, you agree that Elite Realty Group of Jacksonville LLC may contact you by phone, text, or email about your search. Consent is not a condition of any purchase. Msg &amp; data rates may apply; reply STOP to opt out. <a href="privacy-policy.html">Privacy Policy</a>.</p>
                 </div>
             </form>
             <div class="hero-stats">
