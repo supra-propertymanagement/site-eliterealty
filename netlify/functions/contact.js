@@ -36,6 +36,12 @@ exports.handler = async function (event) {
   const phone = (body.phone || "").trim();
   const interest = body.interest || "";
   let message = (body.message || "").trim();
+  if (body.area) {
+    message = "[Area page: " + String(body.area).trim().slice(0, 60) + "]" + (message ? "\n" + message : "");
+  }
+  if (body["property-address"]) {
+    message = "[Home value request] Property: " + String(body["property-address"]).trim().slice(0, 200) + (message ? "\n" + message : "");
+  }
   if (interest === "careers") {
     const extra = [];
     if (body["license-status"]) extra.push("Status: " + String(body["license-status"]).trim());

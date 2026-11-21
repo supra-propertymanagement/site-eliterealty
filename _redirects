@@ -16,13 +16,12 @@
 /real-estate/contact                /contact                 301
 /real-estate/contac                 /contact                 301
 
-# Neighborhood landing pages (keyword-rich — send to home with hash so we can
-# later build proper neighborhood pages and re-point these)
-/real-estate/Atlantic-Beach-real-estate      /#service-areas   301
-/real-estate/Jacksonville-Beach-real-estate  /#service-areas   301
-/real-estate/Neptune-Beach-real-estate       /#service-areas   301
-/real-estate/Ponte-Vedra-Beach-real-estate   /#service-areas   301
-/real-estate/Southside-real-estate           /#service-areas   301
+# Neighborhood landing pages → new neighborhood guides
+/real-estate/Atlantic-Beach-real-estate   /atlantic-beach   301
+/real-estate/Jacksonville-Beach-real-estate   /jacksonville-beach   301
+/real-estate/Neptune-Beach-real-estate   /neptune-beach   301
+/real-estate/Ponte-Vedra-Beach-real-estate   /ponte-vedra-beach   301
+/real-estate/Southside-real-estate   /southside   301
 
 # Property management → SUPRA (external)
 /property-management/*              https://suprapm.com/     301!
