@@ -1830,3 +1830,4 @@ a.area-tag--link::after { content: ' \2192'; }
 .form-error-note { margin-top: 12px; padding: 12px 14px; border-radius: 10px; background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; font-size: 0.9rem; line-height: 1.55; }
 .form-error-note a { color: inherit; font-weight: 600; }
 .form-error-ref { display: block; margin-top: 6px; font-size: 0.75rem; color: #9f5555; }
+.reviewer-note { display: block; font-size: 0.75rem; font-weight: 400; color: var(--color-gray-500); }
