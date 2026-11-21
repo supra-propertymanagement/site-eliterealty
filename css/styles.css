@@ -1855,3 +1855,19 @@ a.area-tag--link::after { content: ' \2192'; }
 .team-creds li { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.03em; color: var(--color-accent-dark); background: var(--color-accent-glow); border: 1px solid var(--color-accent-border); border-radius: 999px; padding: 3px 9px; }
 .team-creds abbr { text-decoration: none; cursor: help; }
 .team-creds-inline { font-size: 0.78rem; color: var(--color-gray-500); }
+
+/* Designation badges with pop-up explanations */
+.team-creds li { padding: 0; background: none; border: 0; }
+.cred-badge { position: relative; font: inherit; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.03em; color: var(--color-accent-dark); background: var(--color-accent-glow); border: 1px solid var(--color-accent-border); border-radius: 999px; padding: 3px 9px; cursor: pointer; transition: background .2s, color .2s; }
+.cred-badge:hover, .cred-badge:focus-visible, .cred-badge.is-open { background: var(--color-accent-dark); color: #fff; outline: none; }
+.cred-tip { position: absolute; bottom: calc(100% + 10px); left: 50%; transform: translateX(-50%) translateY(4px); width: 220px; background: #1a2b30; color: rgba(255,255,255,0.85); font-size: 0.78rem; font-weight: 400; letter-spacing: 0; line-height: 1.45; text-align: left; padding: 10px 12px; border-radius: 10px; box-shadow: 0 10px 24px rgba(0,0,0,0.18); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .18s, transform .18s; z-index: 20; }
+.cred-tip strong { display: block; color: #fff; font-size: 0.82rem; margin-bottom: 3px; }
+.cred-tip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 6px solid transparent; border-top-color: #1a2b30; }
+.cred-badge:hover .cred-tip, .cred-badge:focus-visible .cred-tip, .cred-badge.is-open .cred-tip { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.team-card-detailed { overflow: visible; }
+.team-creds li:first-child .cred-tip { left: 0; transform: translateY(4px); }
+.team-creds li:first-child .cred-tip::after { left: 18px; }
+.team-creds li:last-child .cred-tip { left: auto; right: 0; transform: translateY(4px); }
+.team-creds li:last-child .cred-tip::after { left: auto; right: 18px; transform: none; }
+.team-creds li:first-child .cred-badge:hover .cred-tip, .team-creds li:first-child .cred-badge:focus-visible .cred-tip, .team-creds li:first-child .cred-badge.is-open .cred-tip,
+.team-creds li:last-child .cred-badge:hover .cred-tip, .team-creds li:last-child .cred-badge:focus-visible .cred-tip, .team-creds li:last-child .cred-badge.is-open .cred-tip { transform: translateY(0); }

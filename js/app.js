@@ -230,3 +230,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
+
+// Designation badges: tap to open on touch screens
+document.addEventListener('click', function(e) {
+    var badge = e.target.closest ? e.target.closest('.cred-badge') : null;
+    document.querySelectorAll('.cred-badge.is-open').forEach(function(b) { if (b !== badge) b.classList.remove('is-open'); });
+    if (badge) badge.classList.toggle('is-open');
+});
