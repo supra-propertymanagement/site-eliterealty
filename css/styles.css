@@ -1751,3 +1751,20 @@ h4 { font-size: 1.2rem; }
     .blog-card--featured h2 { font-size: 1.35rem; }
     .post-cover-wrap { margin-top: -24px; }
 }
+
+/* --- Compliance / PM routing --- */
+.footer-eho { display: flex; gap: 16px; align-items: flex-start; border-top: 1px solid rgba(255,255,255,0.08); padding: 24px 0 8px; margin-top: 8px; }
+.footer-eho .eho-logo { width: 40px; height: 40px; flex: 0 0 40px; color: rgba(255,255,255,0.75); }
+.footer-eho p { font-size: 0.8rem; line-height: 1.6; color: rgba(255,255,255,0.55); margin: 0; }
+.footer-eho a { color: rgba(255,255,255,0.8); text-decoration: underline; }
+.form-consent { font-size: 0.78rem; line-height: 1.55; color: var(--color-gray-500); margin-top: 14px; }
+.form-consent a { color: inherit; text-decoration: underline; }
+.pm-note { background: rgba(56,178,200,0.08); border: 1px solid rgba(56,178,200,0.3); border-radius: 10px; padding: 12px 14px; font-size: 0.88rem; line-height: 1.55; color: var(--color-gray-700); margin-top: 10px; }
+.pm-note[hidden] { display: none; }
+.pm-help-box { background: var(--color-gray-50); border: 1px solid var(--color-gray-200); border-left: 4px solid var(--color-accent); border-radius: 12px; padding: 20px 22px; margin: 8px 0 20px; }
+.pm-help-box h4 { margin-bottom: 8px; }
+.pm-help-box p { font-size: 0.92rem; line-height: 1.6; color: var(--color-gray-600); margin-bottom: 10px; }
+.pm-help-contact a { font-weight: 600; }
+.pm-help-links { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; font-size: 0.9rem; }
+.pm-help-links a { color: var(--color-accent-dark); }
+@media (max-width: 768px) { .pm-help-links { grid-template-columns: 1fr; } }

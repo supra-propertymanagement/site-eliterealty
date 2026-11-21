@@ -206,12 +206,14 @@
                             <option value="careers">Joining Elite as an Agent</option>
                             <option value="other">Other</option>
                         </select>
+                        <p id="pm-note" class="pm-note" hidden>Current tenant or owner? For maintenance, rent, or account questions, please contact SUPRA Property Management directly at <a href="tel:9048006575">(904) 800-6575</a> or use the <a href="https://suprapm.com/maintenance" target="_blank" rel="noopener">maintenance request form</a>. For new management inquiries, send this form and we&rsquo;ll connect you with SUPRA.</p>
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>
                         <textarea id="message" name="message" placeholder="Tell us about your goals, timeline, and any questions you have..."></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    <p class="form-consent">By submitting this form, you agree that Elite Realty Group of Jacksonville LLC may contact you by phone, text message, or email about your inquiry. Consent is not a condition of any purchase or service. Message and data rates may apply; reply STOP to opt out of texts. See our <a href="privacy-policy.html">Privacy Policy</a>.</p>
                 </form>
             </div>
 
@@ -272,6 +274,18 @@
                         <h4>Mike Meyer, Palm Beach &amp; Lake Worth</h4>
                         <p><a href="tel:5614095900">(561) 409-5900</a></p>
                     </div>
+                </div>
+
+                <div class="pm-help-box">
+                    <h4>Renting or own a managed property?</h4>
+                    <p>Property management is handled by our sister company, <strong>SUPRA Property Management</strong>. For rentals, maintenance, rent payments, or owner questions, contact SUPRA directly:</p>
+                    <p class="pm-help-contact"><a href="tel:9048006575">(904) 800-6575</a> &middot; <a href="mailto:Office@suprapm.com">Office@suprapm.com</a></p>
+                    <ul class="pm-help-links">
+                        <li><a href="https://suprapm.com/maintenance" target="_blank" rel="noopener">Submit a maintenance request</a></li>
+                        <li><a href="https://suprapm.appfolio.com/connect/users/sign_in" target="_blank" rel="noopener">Tenant portal / pay rent</a></li>
+                        <li><a href="https://suprapm.appfolio.com/oportal/users/log_in" target="_blank" rel="noopener">Owner portal</a></li>
+                        <li><a href="https://suprapm.com/rentals" target="_blank" rel="noopener">Available rentals</a></li>
+                    </ul>
                 </div>
 
                 <!-- Map embed placeholder -->
@@ -338,6 +352,10 @@
                 </ul>
             </div>
         </div>
+        <div class="footer-eho">
+            <svg class="eho-logo" role="img" aria-label="Equal Housing Opportunity" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"><path d="M6 30 32 8l26 22"/><path d="M12 26v30h40V26"/><path d="M22 34h20M22 44h20" stroke-linecap="round"/></svg>
+            <p>Elite Realty Group of Jacksonville LLC is a licensed Florida real estate brokerage and supports equal housing opportunity. We do not discriminate on the basis of race, color, religion, sex, disability, familial status, national origin, or any other class protected by law. <a href="fair-housing.html">Fair Housing Statement</a></p>
+        </div>
         <div class="footer-bottom">
             <span>&copy; 2026 Elite Realty Group of Jacksonville LLC. All rights reserved.</span>
             <div class="footer-legal">
@@ -350,5 +368,8 @@
 </footer>
 
 <script src="js/app.js"></script>
+<script>
+(function(){var s=document.getElementById('interest'),n=document.getElementById('pm-note');if(!s||!n)return;function u(){n.hidden=s.value!=='property-management';}s.addEventListener('change',u);u();})();
+</script>
 </body>
 </html>

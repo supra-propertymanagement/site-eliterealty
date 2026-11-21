@@ -27,12 +27,9 @@
 # Property management → SUPRA (external)
 /property-management/*              https://suprapm.com/     301!
 
-# Former standalone pages → merged/new locations
-/faq                                /buyers#faq              301
-/testimonials                       /about#testimonials      301
-/careers                            /about                   301
+# Former standalone pages → new locations
+# (/faq, /testimonials, /careers and /sitemap now exist as real pages, so their old redirects were removed)
 /wc3                                /accessibility           301
-/sitemap                            /sitemap.xml             301
 /index                              /                        301
 
 # Strip .html extensions (canonical URLs)
