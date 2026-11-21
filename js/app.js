@@ -134,8 +134,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 body: JSON.stringify(data)
             })
             .then(function(res) {
-                if (!res.ok) throw new Error('Request failed');
-                return res.json();
+                return res.json().catch(function(){ return {}; }).then(function(body) {
+                    if (!res.ok) { var err = new Error('Request failed'); err.info = body; err.status = res.status; throw err; }
+                    return body;
+                });
             })
             .then(function() {
                 try {
@@ -155,7 +157,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     btn.disabled = false;
                 }, 3000);
             })
-            .catch(function() {
+            .catch(function(err) {
+                var info = (err && err.info) || {};
+                var note = contactForm.querySelector('.form-error-note');
+                if (!note) { note = document.createElement('p'); note.className = 'form-error-note'; note.setAttribute('role', 'alert'); btn.insertAdjacentElement('afterend', note); }
+                note.innerHTML = 'Sorry, your message didn\u2019t go through. Please call us at <a href="tel:9043743235">(904) 374-3235</a> or email <a href="mailto:office@eliterealtygroup.com">office@eliterealtygroup.com</a>.' +
+                    '<span class="form-error-ref">Ref: ' + String(info.code || (err && err.status) || 'network').replace(/[<>&]/g, '') + (info.detail ? ' \u2014 ' + String(info.detail).replace(/[<>&]/g, '') : '') + '</span>';
                 btn.textContent = 'Error — Try Again';
                 btn.style.background = 'linear-gradient(135deg, #DC2626, #B91C1C)';
                 setTimeout(function() {

@@ -20,7 +20,8 @@ exports.handler = async function (event) {
 
   const apiKey = process.env.MONDAY_API_KEY;
   if (!apiKey) {
-    return { statusCode: 500, body: JSON.stringify({ error: "Monday API key not configured" }) };
+    console.error("MONDAY_API_KEY is not set in Netlify environment variables");
+    return { statusCode: 500, body: JSON.stringify({ error: "Monday API key not configured", code: "no_api_key" }) };
   }
 
   let body;
@@ -92,11 +93,19 @@ exports.handler = async function (event) {
       }),
     });
 
-    const result = await res.json();
+    const text = await res.text();
+    let result = {};
+    try { result = JSON.parse(text); } catch (e) { result = {}; }
 
-    if (result.errors && result.errors.length > 0) {
-      console.error("Monday API errors:", JSON.stringify(result.errors));
-      return { statusCode: 502, body: JSON.stringify({ error: "Failed to create lead" }) };
+    const errMsg =
+      (result.errors && result.errors.length && (result.errors[0].message || JSON.stringify(result.errors[0]))) ||
+      result.error_message || result.error_code ||
+      (!res.ok ? "HTTP " + res.status : "") ||
+      (!result.data || !result.data.create_item ? "No item returned" : "");
+
+    if (errMsg) {
+      console.error("Monday API error:", res.status, text.slice(0, 1000));
+      return { statusCode: 502, body: JSON.stringify({ error: "Failed to create lead", code: "monday", detail: String(errMsg).slice(0, 160) }) };
     }
 
     return {
@@ -105,6 +114,6 @@ exports.handler = async function (event) {
     };
   } catch (err) {
     console.error("Monday API request failed:", err);
-    return { statusCode: 502, body: JSON.stringify({ error: "Failed to create lead" }) };
+    return { statusCode: 502, body: JSON.stringify({ error: "Failed to create lead", code: "network", detail: String(err && err.message || err).slice(0, 160) }) };
   }
 };
