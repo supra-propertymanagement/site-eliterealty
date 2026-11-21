@@ -1713,3 +1713,9 @@ h4 { font-size: 1.2rem; }
 .notfound h1 { font-size: 3rem; margin-bottom: 12px; }
 .notfound p { color: var(--color-gray-600); margin-bottom: 28px; }
 .notfound .hero-cta-row .btn-white { border: 1px solid var(--color-gray-200); }
+
+/* Licensed brokerage name beside contact information (FL Rule 61J2-10.025) */
+.header-phone-text { display: flex; flex-direction: column; line-height: 1.15; }
+.header-brokerage { font-size: 0.62rem; font-weight: 500; color: var(--color-gray-600, #4B5563); margin-top: 2px; white-space: nowrap; }
+.footer-brokerage { font-weight: 600; line-height: 1.45; margin-bottom: 6px; }
+.contact-brokerage { margin: 0 0 18px; line-height: 1.5; }
