@@ -140,7 +140,11 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(function() {
                 try {
                     window.dataLayer = window.dataLayer || [];
-                    window.dataLayer.push({ event: 'generate_lead', form_name: contactForm.getAttribute('name') || 'contact', lead_interest: data.interest || '', lead_area: data.area || '' });
+                    var leadInfo = { form_name: contactForm.getAttribute('name') || 'contact', lead_interest: data.interest || '', lead_area: data.area || '', page_path: location.pathname };
+                    window.dataLayer.push(Object.assign({ event: 'generate_lead' }, leadInfo));
+                    // Send straight to GA4 through the Google tag that GTM already loads (no extra page views)
+                    var gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+                    gtag('event', 'generate_lead', Object.assign({ send_to: 'G-N020CC2D6C' }, leadInfo));
                 } catch (err) {}
                 btn.textContent = 'Sent!';
                 btn.style.background = 'linear-gradient(135deg, #16A34A, #15803d)';
