@@ -1831,3 +1831,5 @@ a.area-tag--link::after { content: ' \2192'; }
 .form-error-note a { color: inherit; font-weight: 600; }
 .form-error-ref { display: block; margin-top: 6px; font-size: 0.75rem; color: #9f5555; }
 .reviewer-note { display: block; font-size: 0.75rem; font-weight: 400; color: var(--color-gray-500); }
+
+.affiliate-note { font-size: 0.78rem; line-height: 1.55; color: var(--color-gray-500); margin-top: 14px; }
