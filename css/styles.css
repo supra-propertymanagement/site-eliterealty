@@ -534,12 +534,25 @@ h4 { font-size: 1.2rem; }
 
 .hero h1 {
     color: var(--color-white);
-    font-size: 3.5rem;
+    font-size: 2.75rem;
     line-height: 1.15;
     margin-bottom: 20px;
 }
 
 .hero h1 span {
+    color: var(--color-gold);
+}
+
+.hero-tagline {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: var(--color-white);
+    font-size: 1.6rem;
+    font-weight: 600;
+    font-style: italic;
+    margin: -6px 0 22px;
+}
+
+.hero-tagline span {
     color: var(--color-gold);
 }
 
@@ -962,7 +975,7 @@ h4 { font-size: 1.2rem; }
 
 .process-number {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 3rem;
+    font-size: 2.75rem;
     font-weight: 700;
     color: rgba(212,168,83,0.2);
     line-height: 1;
@@ -1612,7 +1625,8 @@ h4 { font-size: 1.2rem; }
         padding: 120px 0 64px;
     }
 
-    .hero h1 { font-size: 2.2rem; }
+    .hero h1 { font-size: 2rem; }
+    .hero-tagline { font-size: 1.3rem; }
     .hero-stats {
         flex-wrap: wrap;
         gap: 24px;
@@ -1642,7 +1656,8 @@ h4 { font-size: 1.2rem; }
 
 @media (max-width: 480px) {
     .container { padding: 0 16px; }
-    .hero h1 { font-size: 1.8rem; }
+    .hero h1 { font-size: 1.65rem; }
+    .hero-tagline { font-size: 1.15rem; }
     .hero-stats { gap: 16px; }
     .hero-stat-number { font-size: 1.8rem; }
     .credential-bar .container { gap: 24px; }
