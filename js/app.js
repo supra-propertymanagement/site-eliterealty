@@ -138,6 +138,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 return res.json();
             })
             .then(function() {
+                try {
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({ event: 'generate_lead', form_name: contactForm.getAttribute('name') || 'contact', lead_interest: data.interest || '', lead_area: data.area || '' });
+                } catch (err) {}
                 btn.textContent = 'Sent!';
                 btn.style.background = 'linear-gradient(135deg, #16A34A, #15803d)';
                 contactForm.reset();
