@@ -9,6 +9,7 @@ const INTEREST_MAP = {
   investing: "Investment Properties",
   "market-analysis": "Free Market Analysis",
   "property-management": "Property Management",
+  careers: "Other",
   other: "Other",
 };
 
@@ -34,7 +35,13 @@ exports.handler = async function (event) {
   const email = (body.email || "").trim();
   const phone = (body.phone || "").trim();
   const interest = body.interest || "";
-  const message = (body.message || "").trim();
+  let message = (body.message || "").trim();
+  if (interest === "careers") {
+    const extra = [];
+    if (body["license-status"]) extra.push("Status: " + String(body["license-status"]).trim());
+    if (body["profile-taken"]) extra.push("Took RightSeat profile: " + String(body["profile-taken"]).trim());
+    message = "[CAREERS / AGENT RECRUITING]\n" + extra.join("\n") + (message ? "\n\n" + message : "");
+  }
 
   if (!firstName || !lastName || !email) {
     return { statusCode: 400, body: JSON.stringify({ error: "First name, last name, and email are required" }) };
